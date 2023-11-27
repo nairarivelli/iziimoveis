@@ -1,0 +1,19 @@
+CREATE TABLE casas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255),
+    tipo_preco ENUM('Baixo', 'Médio', 'Alto'),
+  
+);
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255),
+);
+
+CREATE TABLE favoritos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_casa INT,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_casa) REFERENCES casas(id)
+);
